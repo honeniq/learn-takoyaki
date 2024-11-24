@@ -40,9 +40,14 @@ func _process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
+			
 			var explosion = EXPLOSION_OBJ.instantiate()
 			explosion.position = position
 			get_tree().root.add_child(explosion)
 
+			$explosion_sound.play()
+			self.visible = false
+			
+			await $explosion_sound.finished
 			queue_free()  # オブジェクトを削除する
 	pass # Replace with function body.

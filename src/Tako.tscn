@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tc2kf4vj101q"]
+[gd_scene load_steps=5 format=3 uid="uid://tc2kf4vj101q"]
 
 [ext_resource type="Script" path="res://src/Tako.gd" id="1_ei7gn"]
 [ext_resource type="Texture2D" uid="uid://bni63nismaltw" path="res://assets/images/tako.png" id="2_pors5"]
+[ext_resource type="AudioStream" uid="uid://bmmomu2p4grw2" path="res://assets/sounds/explosion.mp3" id="3_jh1ye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eckv2"]
 radius = 64.0312
@@ -16,5 +17,8 @@ texture = ExtResource("2_pors5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_eckv2")
+
+[node name="explosion_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jh1ye")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
